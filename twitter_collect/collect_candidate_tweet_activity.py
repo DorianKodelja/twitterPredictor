@@ -13,7 +13,7 @@ def get_candidate_queries(num_candidate, file_path,file_type):
     """
     queries=[]
 
-    keywords_file_path="{}_{}_{}candidate_{}.txt".format(file_path,file_type,num_candidate)
+    keywords_file_path="{}_{}_candidate_{}.txt".format(file_path,file_type,num_candidate)
     try:
         with open(keywords_file_path,'r') as keyword_file:
             keywords=keyword_file.read().split("\n")
@@ -27,7 +27,7 @@ def get_candidate_queries(num_candidate, file_path,file_type):
             if i <len(keywords)-2:
                 for keyword2 in keywords[i+1:]:
                     if file_type == "hashtag":
-                        queries.append("{} AND {}".format(keyword2, keyword2))
+                        queries.append("#{} AND #{}".format(keyword2, keyword2))
                     else:
                         queries.append("{} AND {}".format(keyword2, keyword2))
             i = i + 1
